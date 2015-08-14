@@ -1,0 +1,7 @@
+<h1>Projects</h1>
+<div ng-controller="ProjectsController" ng-repeat="project in projects">
+	<h3>{{project.title}}</h3>
+	<p>{{project.description}}</p>
+	<a ng-href="{{project.deployed}}">View Online</a>
+	<a ng-href="{{project.github}}">View Code</a>
+</div>
