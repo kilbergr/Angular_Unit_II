@@ -1,0 +1,113 @@
+body {
+	font-family: Arial;
+	font-size: 14px;
+	text-align: left;
+	margin: 5px;
+	background-color: #CBF7E8;
+}
+
+.container{
+	padding: 5px;
+	margin: 5px;
+}
+
+.nav {
+	width: 90%;
+	height: 100px;
+	background-color: #ED5571;
+	margin: 5px;
+}
+
+.right{
+	float: right;
+}
+.navContent{
+	margin: 5px;
+}
+
+.title{
+	color: #f9c8d1;
+	font-size: 28px;
+}
+.btn-default{
+	background-color: #f9c8d1;
+}
+
+.btn-default:hover{
+	background-color: #f18398;
+}
+
+.image {
+	width: 100px;
+	margin: 10px;
+	float: left;
+	padding-bottom: 50px;
+}
+
+.form-style input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+.voteDiv {
+	display:inline;
+}
+.upVote{
+	color: green;
+	display:inline;
+}
+.downVote{
+	color: red;
+	display: inline;
+}
+
+.postDiv{
+	margin: 2%;
+	width:85%;
+	background-color: #9FF0D4;
+	height: auto;
+	padding: 5px;
+}
+.postDiv.ng-move,
+.postDiv.ng-enter,
+.postDiv.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.postDiv.ng-leave.ng-leave-active,
+.postDiv.ng-move,
+.postDiv.ng-enter {
+  opacity:0;
+}
+
+.postDiv.ng-leave,
+.postDiv.ng-move.ng-move-active,
+.postDiv.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.commentDiv{
+	margin: 5px;
+	width:50%;
+	overflow: auto;
+	background-color: #9FF0D4;
+}
+.commentDiv.ng-move,
+.commentDiv.ng-enter,
+.commentDiv.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.commentDiv.ng-leave.ng-leave-active,
+.commentDiv.ng-move,
+.commentDiv.ng-enter {
+  opacity:0;
+}
+
+.commentDiv.ng-leave,
+.commentDiv.ng-move.ng-move-active,
+.commentDiv.ng-enter.ng-enter-active {
+  opacity:1;
+}
+

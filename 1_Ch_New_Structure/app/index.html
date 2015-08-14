@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="redditApp" ng-controller="postController">
+<head>
+	<meta charset="UTF-8">
+	<title>Reddit Clone</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-animate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.2/angular-moment.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/directives.js"></script>
+		<script src="js/filters.js"></script>
+		<script src="js/services.js"></script>
+
+<!-- Styling -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+
+</head>
+<body class="container">
+	<div class="nav">
+		<div class="navContent">
+		<p class="title">Reddit Clone</p>
+			
+			<!-- Sort by various filters -->
+			Search by: <input ng-model="query">
+			Sort by: <select ng-model="sort">
+				<option value="votes">Votes</option>
+				<option value="date">Date</option>
+				<option value="title">Title</option>
+				<option value="author">Author</option>
+			</select>
+			<button class="btn btn-default right" ng-click="showform=true">+ Post</button>
+		</div>
+	</div>
+
+	<div ng-show="showform==true">
+		<form novalidate class=".form-control" name = "postform" >
+					<div>Title<input type="text" ng-model="post.title" autofocus required>
+					Content<input type="text" ng-model="post.content" required>
+					Image<input type="text" ng-model="post.image" required>
+					Author<input type="text" ng-model="post.author" required>
+					<input class="btn btn-default" type="submit" value="Submit" ng-click="addPost(); showform = false"></div>
+			</form>
+	</div>
+
+
+	<div ng-repeat="post in posts | orderBy: sort | filter:query" class="postDiv">
+			<div><img class="image" ng-src="{{post.image}}" alt="{{post.title}}"></div>
+			<div class="postDiv">
+			<h3>{{post.title}} &nbsp;
+				
+					<ng-md-icon icon="thumb_up" size="18" ng-click="addVote()"></ng-md-icon>
+					<div ng-class="{upVote: post.votes>0, downVote: post.votes<0, voteDiv: post.votes==0}">{{post.votes}}</div>
+					<ng-md-icon icon="thumb_down" size="18" ng-click="removeVote()"></ng-md-icon>
+			
+			</h3>
+			<p>{{post.content}}</p>
+			<!-- navBar for each post -->
+				<div am-time-ago="post.date">{{post.date | date: fullDate}}</div>  
+				<button class="btn btn-default" ng-show="post.showComments==false" ng-click="post.showComments=true">
+				<ng-pluralize count="post.comments.length"
+	                 when="{'0': 'No Comments yet!',
+	                     'one': 'View Comment',
+	                     'other': 'View {} Comments'}">
+				</ng-pluralize></button> 
+				<button class="btn btn-default" ng-show="post.showComments==true" ng-click="post.showComments=false">Hide Comments</button> | 
+				<button class="btn btn-default" ng-click="post.showCommentForm=true">+ Comment</button>
+			
+	<!-- Add comment form if comment button clicked -->
+			<div ng-show="post.showCommentForm==true" class="commentDiv" >
+				<form novalidate class=".form-control" name = "commentform">
+					<div>Author<input type="text" ng-model="post.comment.author" autofocus required>
+					Comment<input type="text" ng-model="post.comment.content" required><input class="btn btn-default" type="submit" value="Submit" ng-click="addComment(); post.showCommentForm=false"></div>
+				</form>
+			</div>
+	<!-- Show comments if view comments is clicked -->
+		<div ng-show="post.showComments==true" class="commentDiv" ng-repeat="comment in post.comments" >
+			<p>{{comment.content}}</p>
+			<h5>--{{comment.author}}</h5>
+		</div>
+	</div>
+
+</body>
+</html>
