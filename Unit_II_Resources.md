@@ -7,3 +7,7 @@ Unless you want to send all your files to someone else to make your application 
 
 EXERCISE: Open up your gmail(or similar email provider) account. Try clicking around and accessing the different features. Pay special attention to the url bar. What do you notice?   
 The address doesn't change--some query parameters are added but the url stays the same.
+
+* Why does Angular put a # in the route path?    
+It seems like something that acts kind of like the '/' and kind of like the opposite. It sends the user data from the requested template, but doesn't render a new page. From stackoverflow: The # is an old browser shortcircuit which doesn't fire the request, which allows many js frameworks to build their own clientside rerouting on top of that.  
+
