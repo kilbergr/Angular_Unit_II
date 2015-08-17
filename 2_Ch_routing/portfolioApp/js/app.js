@@ -1,5 +1,7 @@
-var app = angular.module("portfolioApp", ['ngRoute']);
-
+var app = angular.module("portfolioApp", ['ngRoute'])
+.run(function($rootScope) {
+    $rootScope.whichRoute = 'home';
+});
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {

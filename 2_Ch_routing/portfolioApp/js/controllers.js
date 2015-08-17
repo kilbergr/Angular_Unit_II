@@ -23,21 +23,30 @@ app.controller("ProjectsController", function($scope, $routeParams, $location){
 		}
 	];
 	$scope.name = 'ProjectsController';
-	$scope.params = $routeParams;
-
+	
 })
 
-app.controller("BioController", function($scope, $routeParams){
+app.controller("BioController", function($scope, $routeParams, $location){
 	$scope.name = 'BioController';
 	$scope.params = $routeParams;
+	$scope.path = $location.path();
 })
 
-app.controller("ResumeController", function($scope, $routeParams){
+app.controller("ResumeController", function($scope, $routeParams, $location){
 	$scope.name = 'ResumeController';
 	$scope.params = $routeParams;
 })
 
-app.controller("HomeController", function($scope, $routeParams){
+
+app.controller("HomeController", function($scope, $routeParams, $location){
 	$scope.name = 'HomeController';
 	$scope.params = $routeParams;
+	$scope.path = $location.path();
+})
+
+app.controller("NavController", function($scope, $routeParams, $location){
+	$scope.name="NavController";
+	$scope.params = $routeParams;
+  $scope.location = $location;
+
 })

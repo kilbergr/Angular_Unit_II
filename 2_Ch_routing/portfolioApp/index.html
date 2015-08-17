@@ -17,24 +17,20 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">Rebecca's Portfolio Site 
-<div > {{$location.path}}</div>
-<div>route current scope name: {{$route}}</div>
+<nav class="nav navbar navbar-default" >Rebecca's Portfolio Site 
+	<div ng-controller="NavController" >
+	<ul class="nav navbar-nav">
 
-	<div ng-show="routeName!='projects'"><a href="/projects">Projects</a></div>
-	<div ng-show="$route.current==bio">
-	<a href="bio">Bio</a></div>
-	<div ng-hide="$route.current==resume">
-	<a href="resume">Resume</a></div>
-	<div ng-show="routeName==home">
-	<a href="home">Home</a></div>
-</nav>
-	<div class="container-fluid">
-		<div class="navbar-header">
-			
-		</div>
+		<li ng-hide="whichRoute=='projects'" ng-click="whichRoute='projects'"><a href="projects">Projects</a></li>
+		<li ng-hide="whichRoute=='bio'" ng-click="whichRoute='bio'">
+		<a href="bio">Bio</a></li>
+		<li ng-hide="whichRoute=='resume'" ng-click="whichRoute='resume'">
+		<a href="resume">Resume</a></li>
+		<li ng-hide="whichRoute=='home'" ng-click="whichRoute='home'">
+		<a href="home">Home</a></li>
+	</ul>
 	</div>
-	  <div ng-view></div>
+</nav>
 
 </body>
 </html>

@@ -1,29 +1,34 @@
-var app = module.Angular("calcApp", ['ngRoute']);
+var app = angular.module("calcApp", ['ngRoute']);
+
 app.config(function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: 'partials/home.html'
 		})
-		.when('/add', {
+		.when('/add/:num1/:num2', {
 			templateUrl: 'partials/add.html',
-			controller: 'AddCtrl'
+			controller: 'AddController'
 
 		})
-			.when('/subtract', {
+			.when('/subtract/:num1/:num2', {
 			templateUrl: 'partials/subtract.html',
-			controller: 'SubtractCtrl'
+			controller: 'SubController'
 
 		})
-			.when('/multiply', {
+			.when('/multiply/:num1/:num2', {
 			templateUrl: 'partials/multiply.html',
-			controller: 'MultiplyCtrl'
+			controller: 'MultController'
 		})
-			.when('/divide', {
+			.when('/divide/:num1/:num2', {
 			templateUrl: 'partials/divide.html',
-			controller: 'DivideCtrl'
+			controller: 'DivController'
 		})
+			.when('/greet/:name', {
+				templateUrl: 'partials/greet.html',
+				controller: 'GreetCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
-		$locationProvider.html5Mode(true)
+	 $locationProvider.html5Mode(true);
 });
