@@ -1,4 +1,4 @@
-app.controller("ProjectsController", function($scope){
+app.controller("ProjectsController", function($scope, $routeParams, $location){
 	$scope.projects = [
 		{ 
 			title: 'Poison, dear',
@@ -21,5 +21,23 @@ app.controller("ProjectsController", function($scope){
 			deployed: 'http://kilbergr.github.io/Gimme-Five/',
 			composition: 'JavaScript, CSS, HTML'
 		}
-	]
+	];
+	$scope.name = 'ProjectsController';
+	$scope.params = $routeParams;
+
+})
+
+app.controller("BioController", function($scope, $routeParams){
+	$scope.name = 'BioController';
+	$scope.params = $routeParams;
+})
+
+app.controller("ResumeController", function($scope, $routeParams){
+	$scope.name = 'ResumeController';
+	$scope.params = $routeParams;
+})
+
+app.controller("HomeController", function($scope, $routeParams){
+	$scope.name = 'HomeController';
+	$scope.params = $routeParams;
 })

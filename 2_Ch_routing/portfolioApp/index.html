@@ -18,9 +18,16 @@
 </head>
 <body>
 <nav class="navbar navbar-default">Rebecca's Portfolio Site 
-	<a href="/projects">Projects</a>
-	<a href="resume">Resume</a>
-	<a href="bio">Bio</a>
+<div > {{$location.path}}</div>
+<div>route current scope name: {{$route}}</div>
+
+	<div ng-show="routeName!='projects'"><a href="/projects">Projects</a></div>
+	<div ng-show="$route.current==bio">
+	<a href="bio">Bio</a></div>
+	<div ng-hide="$route.current==resume">
+	<a href="resume">Resume</a></div>
+	<div ng-show="routeName==home">
+	<a href="home">Home</a></div>
 </nav>
 	<div class="container-fluid">
 		<div class="navbar-header">
