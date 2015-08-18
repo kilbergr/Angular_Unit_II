@@ -11,3 +11,19 @@ The address doesn't change--some query parameters are added but the url stays th
 * Why does Angular put a # in the route path?    
 It seems like something that acts kind of like the '/' and kind of like the opposite. It sends the user data from the requested template, but doesn't render a new page. From stackoverflow: The # is an old browser shortcircuit which doesn't fire the request, which allows many js frameworks to build their own clientside rerouting on top of that.  
 
+
+* Why isn't ngRoute part of Angular core? Name at least 2 other Angular modules we could use  
+It was part of the Angular core, but in order to make Angular more modular, it was developed into a separate module instead.  
+You could use ui-router or angular-route-segment.
+
+* Compare and contrast client-side routing with server-side routing  
+The former doesn't really change the routes, per se--it seems like it does, but essentially all that's happening is that different parts of the page are being shown to the user at different times according to the client-side routing. With server-side routing, the user is actually being sent to different pages with different rendered content. One is exclusively front end, the other back-end.
+
+* Aside from route definitions, what else can go in a .config()? 
+Anything that needs to be loaded upon route configuration, including services, providers, etc. 
+
+* What is $rootScope?  
+$rootScope is essentially the same as global scope in vanilla JS. What you declare there is valid in all controllers. 
+
+* What is the $routeChangeSuccess event?  
+$routeChangeSuccess is an event that broadcasts whether the route has been changed successfully or not. If a positive, it means all route dependencies have been resolved and ngView can instantiate the controller and render the relevent view.
