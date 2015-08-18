@@ -53,3 +53,22 @@ app.filter('piglatin', function(){
 		return pigArr.join(" ");
 	}
 })
+
+app.filter('redact', function(){
+	return function(input, word){
+		if (input.indexOf(word)!=-1){
+			var arr = input.split(" ");
+			var outputArr = [];
+			for(var i = 0; i<arr.length; i++){
+				if (arr[i]!=word){
+					outputArr.push(arr[i]);
+				}
+				else outputArr.push('REDACTED');
+			}
+		return outputArr.join(" ");
+		}
+		else {
+			return input;
+		}
+	}
+})
