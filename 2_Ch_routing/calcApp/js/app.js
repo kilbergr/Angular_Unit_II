@@ -23,12 +23,8 @@ app.config(function($routeProvider, $locationProvider){
 			templateUrl: 'partials/divide.html',
 			controller: 'DivController'
 		})
-			.when('/greet/:name', {
-				templateUrl: 'partials/greet.html',
-				controller: 'GreetCtrl'
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
+		.otherwise({
+			redirectTo: '/'
+		});
 	 $locationProvider.html5Mode(true);
 });
