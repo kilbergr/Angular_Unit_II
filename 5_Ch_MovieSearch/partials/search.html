@@ -1,0 +1,6 @@
+<div ng-repeat="result in results">
+	<h3>{{result.Title}}</h3>
+	<p>{{result.Year}}</p>
+	<p>{{result.Type}}</p>
+	<button ng-click="showResult(result.imdbID)"> <a ng-href="/show/{{result.imdbID}}">More about this {{result.Type}}</a></button>
+</div>

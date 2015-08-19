@@ -34,3 +34,12 @@ Same origin policy is a security mechanism by which one script can only access i
 * Try using $http.get() to make a request to https://itunes.apple.com/search?term=jack+johnson and display the title of every post on your template. You should get an error. What was the error? Why did the api.github.com domain work and not the itunes.com domain?  
 Error: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
 Encountering this because of the same origin policy. We're using http get request, but making a request to an https page.
+
+* What is a service? Is there a Ruby or JavaScript equivalent to Angular services?  
+A service is similar to a module in JS or a gem in Ruby. It is a bit of reusable code that you can reference without having to write it yourself and is functional across the swath of code where you call it.  
+
+* Explain in as much detail as possible what happens under the hood of $http.get()  
+Just like other get requests -- 
+
+* What is $q and how does it relate to $http?   
+$q is a service that allows you to handle multiple outcomes of the $http requests. It's similar to what 

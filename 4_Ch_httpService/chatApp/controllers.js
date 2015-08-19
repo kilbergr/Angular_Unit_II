@@ -11,7 +11,7 @@ $scope.setMessage = function(){
 $scope.setMessage();	
 
 $scope.getMessages = function(){
-	$http.get('https://shielded-peak-6345.herokuapp.com/')
+	$http.get('https://shielded-peak-6345.herokuapp.com/messages')
 		.then(function(data){
 			$scope.messages = data.data
 			});
