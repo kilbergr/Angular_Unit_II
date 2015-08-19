@@ -27,3 +27,10 @@ $rootScope is essentially the same as global scope in vanilla JS. What you decla
 
 * What is the $routeChangeSuccess event?  
 $routeChangeSuccess is an event that broadcasts whether the route has been changed successfully or not. If a positive, it means all route dependencies have been resolved and ngView can instantiate the controller and render the relevent view.
+
+* Describe what both the same origin policy and CORS are.  
+Same origin policy is a security mechanism by which one script can only access information on a second web page if they are from the same origin (defined by same port, URI scheme, and hostname). This is to prevent sensitive data from being universally accessible. CORS (Cross-Origin Resource Sharing) is a workaround that allows servers to specify the origins from which data may be accessed. 
+
+* Try using $http.get() to make a request to https://itunes.apple.com/search?term=jack+johnson and display the title of every post on your template. You should get an error. What was the error? Why did the api.github.com domain work and not the itunes.com domain?  
+Error: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+Encountering this because of the same origin policy. We're using http get request, but making a request to an https page.

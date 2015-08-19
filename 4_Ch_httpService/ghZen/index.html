@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="httpApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controller.js"></script>
+
+</head>
+<body>
+	<div ng-controller="httpController">
+	<!-- {{results}} -->
+		<div ng-show="{{error}}">{{error}}</div>
+		<div ng-repeat="result in results">
+			{{result.trackName}}
+		</div>
+	</div>
+</body>
+</html>
