@@ -1,3 +1,24 @@
-<div>
-{{highlight}}
+<div class="row">
+	<div class="col-md-12">
+		<h4>{{highlight.Title}}</h4>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-4"><img ng-src="{{highlight.Poster}}"></div>
+  <div class="col-md-8">
+  <ul>
+  	<li><b>Released: </b>{{highlight.Year}}</li>
+  	<li><b>Rated: </b>{{highlight.Rated}}</li>
+  	<li><b>Length: </b>{{highlight.Runtime}}</li>
+  	<li><b>Genre: </b>{{highlight.Genre}}</li>
+  	<li><b>IMDB User </b>Rating: {{highlight.imdbRating}}	</li>
+  	<li><b>Directed By: </b>{{highlight.Director}}</li>
+  	<li><b>Starring: </b>{{highlight.Actors}}</li>
+  </ul>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		{{highlight.Plot}}
+	</div>
 </div>
