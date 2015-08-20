@@ -1,4 +1,5 @@
-app.controller('MovieController', function($scope, $route, $routeParams, $http, $location, $rootScope){
+
+app.controller('MovieController', ['$scope', '$route', '$routeParams', '$http', '$location', '$rootScope', function($scope, $route, $routeParams, $http, $location, $rootScope){
 	$scope.params = $routeParams;
 	$scope.inquiry = $routeParams.inquiry;
 	
@@ -28,4 +29,4 @@ app.controller('MovieController', function($scope, $route, $routeParams, $http, 
 		$scope.inquiry = $routeParams.inquiry;
 	}
 
-})
+}]);

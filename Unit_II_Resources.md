@@ -42,4 +42,23 @@ A service is similar to a module in JS or a gem in Ruby. It is a bit of reusable
 Just like other get requests -- 
 
 * What is $q and how does it relate to $http?   
-$q is a service that allows you to handle multiple outcomes of the $http requests. It's similar to what 
+$q is a service that allows you to handle multiple outcomes of the $http requests. It's similar to what we do with AJAX calls where we have multiple paths according to whether there are issues with the response or not.
+
+* Look at an angular app you have made previous (reddit clone or your portfolio site). What dependencies are there? Where do you see dependencies other than the contoller?  
+In the portfolio app, the controllers include scope, routeParams, and location dependencies. The app.js file contains routeProvider and locaationProvider dependencies for app config.  
+
+* In the above example (MathController) does the order of the dependencies matter? Does $scope have to come before $routeParams? Do the names matter? Could we name them something else?  
+In regular JS order does not matter, but in inline array annotation it does matter which order (array must be before and ordered to correspond to function parameters). I think $scope and $routeParams must be called that because they are built-in available, rather than just merely variables. You can rename with inline array annotation, but I don't really see the point.
+
+* To make the files smaller, developers minify their js files. Find a minification tool and minify your js code. Update your html file so that it now points to your newly minified js files. Does your angular app still work? If it stopped working, what is the problem?  As mentioned above, minifying breaks Angular apps because of dependency injection. Error: [$injector:unpr] Unknown provider: tProvider <- t <- MovieController   
+
+* So far we have mainly seen one way to do dependency injection. Research and figure out the other two ways.   Which one is the best practice?   
+Using the inline array annotation (preferred)
+Using the $inject property annotation
+Implicitly from the function parameter names (has caveats)
+
+* When using inline array annotation does the order of anything matter? What order should match?   
+See above.  
+ 
+
+

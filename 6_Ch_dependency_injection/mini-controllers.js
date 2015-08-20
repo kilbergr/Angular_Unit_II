@@ -1,0 +1,1 @@
+app.controller("MathController",function(l,a){l.val1=parseInt(a.val1,10),l.val2=parseInt(a.val2,10),l.op="",l.result=0,"add"===a.op?(l.op="+",l.result=l.val1+l.val2):"subtract"===a.op&&(l.op="-",l.result=l.val1-l.val2)});
