@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-lg-3">
+		Search by Category: <select ng-model="sort" ng-options="o as o for o in options"></select>
+	</div>
+	<div class="col-lg-6">
+		<ng-md-icon icon="search" size="18"></ng-md-icon> Search by name: <input ng-model="query">
+	</div>
+	<div class="col-lg-3">
+		<a ng-href="/checkout">
+			<button>Checkout | Bag 
+				<span class="badge">
+					<ng-pluralize count="items.length"
+			                 when="{'0': 'Empty!',
+			                     'one': '1 Item',
+			                     'other': '{} Items'}">
+					</ng-pluralize>
+				</span>
+			</button>
+			</a>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3">
+		Tea
+	</div>
+	<div class="col-lg-9">
+		Information
+	</div>
+</div>
+
+<div class="row" ng-repeat="tea in teaList">
+	<div class="col-lg-3">
+		{{tea.name}}
+		<img ng-src="{{tea.imageUrl}}"
+	</div>
+	<div class="col-lg-9">
+		{{tea.ingredients}}
+			<span>
+			<button>Add to Bag!</button>
+			</span>
+	</div>
+</div>
