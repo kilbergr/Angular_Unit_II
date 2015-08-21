@@ -1,12 +1,12 @@
 var app = angular.module("contactsApp", ['ngRoute']);
 
-app.config(function($routeProvider, $locationProvider){
+app.config(function($routeProvider,  $httpProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
 		templateUrl: 'partials/home.html',
 		controller: 'ContactController'
 	})
-	.when('/show/:name', {
+	.when('/show/:id', {
 		templateUrl: 'partials/show.html',
 		controller: 'ContactController'
 	})
@@ -14,6 +14,10 @@ app.config(function($routeProvider, $locationProvider){
 		redirectTo: '/'
 	});
 	$locationProvider.html5Mode(true);
+
+	$httpProvider.defaults.useXDomain = true;
+	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 
 });
 

@@ -61,6 +61,9 @@ Implicitly from the function parameter names (has caveats)
 See above.  
 
 * Name at least 3 angular built in services that we have used so far.  
-$http, $locationProvider, $routeProvider
+$http, $locationProvider, $routeProvider  
+
+* Why would you prefer to use a promise over a callback? What advantage does it have?  
+A promise can be used when a function would eventually throw an error or return value, but is currently latent or needs to do something prior to its ultimate return. Promises "uninvert inversion of control". 
 
 
