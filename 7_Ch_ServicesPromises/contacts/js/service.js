@@ -37,7 +37,7 @@ app.factory('ContactList', function() {
  return ContactList;
 });
 
-app.factory('Giphy', ['$http', '$q', function($http, $q){
+app.factory('Giphy', ['$http', '$q', '$rootScope', function($http, $q, $rootScope){
   var Giphy = {};
   Giphy.foundGif = [];
   var baseURL = 'http://api.giphy.com/v1/gifs/search?q=';
@@ -60,12 +60,18 @@ app.factory('Giphy', ['$http', '$q', function($http, $q){
     var deferred = $q.defer();
 
     $http.get(url).success(function(data){
-      Giphy.foundGif = data.data.data[0];
+      $rootScope.foundGif = data.data[0].images;
+      console.log($rootScope.foundGif);
       deferred.resolve(data);
+      // debugger;
     }).error(function(){
       deferred.reject("Error!")
     });
     return deferred.promise;
+  }
+
+   Giphy.log = function(){
+    console.log("angry");
   }
   return Giphy;
 

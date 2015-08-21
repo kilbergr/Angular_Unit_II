@@ -23,7 +23,7 @@
 			<td>{{contact.name}}</td>
 			<td>{{contact.email}}</td>
 			<td>{{contact.phone}} </td>
-			<td><button ng-click="findContact(contact.id); addGif(contact.name)"><a ng-href="/show/{{contact.id}}">About {{contact.name}}</a></button></td>
+			<td><button ng-click="findContact(contact.id); findGif(contact.name); log()"><a ng-href="/show/{{contact.id}}">About {{contact.name}}</a></button></td>
 			<td><button ng-click="removeContact(contact.id)">Remove {{contact.name}} from list</button></td>
 		</tr>
 	</table>

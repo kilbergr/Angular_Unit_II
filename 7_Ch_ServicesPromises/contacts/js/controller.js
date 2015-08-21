@@ -6,7 +6,7 @@ app.controller('ContactController', ["$scope", "ContactList", "Giphy", "$route",
    $scope.removeContact = ContactList.removeContact;
    $scope.params = $routeParams;
    $scope.findGif = Giphy.search;
-   $scope.foundGif = Giphy.foundGif;
+   $rootScope.foundGif;
 
 }]);
 	
