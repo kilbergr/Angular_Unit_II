@@ -123,5 +123,26 @@ app.factory('TeaList', function(){
         categories: ["spring", "warm","winter"]
     }
 	];
+	TeaList.desiredTea = [];
+
+	TeaList.findTea = function(id, quantity){
+		TeaList.teaList.chosenTea = {};
+		for (var i = 0; i< TeaList.teaList.length; i++){
+			if(TeaList.teaList[i].id == id){
+				// debugger;
+				TeaList.chosenTea = TeaList.teaList[i];
+				TeaList.chosenTea.quantity = quantity;
+				return TeaList.chosenTea;
+			}
+		}
+	};
+
+	TeaList.addTea = function(id, quantity){
+		TeaList.findTea(id);
+		debugger;
+		TeaList.desiredTea.push(TeaList.chosenTea);
+		console.log(TeaList.desiredTea);
+	}
 	return TeaList;
 })
+

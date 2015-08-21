@@ -1,0 +1,10 @@
+.row{
+	border: .1em solid #EFEFEF;
+	padding: 5px;
+}
+.rowTOP{
+	border: 1em solid #FFF;
+}
+.rowBK{
+	background-color: #F5F5F5;
+}

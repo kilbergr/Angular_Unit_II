@@ -29,7 +29,7 @@ app.factory('ContactList', function() {
     for(var i = 0; i<ContactList.contactList.length; i++){
         if(ContactList.contactList[i].id == id){
            ContactList.contactList.splice(i, 1);
-           console.log(ContactList.contactList)
+           // console.log(ContactList.contactList)
          return ContactList.contactList;
        }
      }

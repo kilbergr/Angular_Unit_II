@@ -1,13 +1,14 @@
 <div class="row">
 	<div class="col-lg-3">
-		Search by Category: <select ng-model="sort" ng-options="o as o for o in options"></select>
+	<span class="glyphicon glyphicon-search"></span>	Search by Category: <select ng-model="sort" ng-options="cat as cat for cat in categories"></select>
+
 	</div>
 	<div class="col-lg-6">
-		<ng-md-icon icon="search" size="18"></ng-md-icon> Search by name: <input ng-model="query">
+		<span class="glyphicon glyphicon-search"></span> Search by name: <input ng-model="query">
 	</div>
 	<div class="col-lg-3">
 		<a ng-href="/checkout">
-			<button>Checkout | Bag 
+			<button class="pull-right btn btn-danger">Checkout | Bag 
 				<span class="badge">
 					<ng-pluralize count="items.length"
 			                 when="{'0': 'Empty!',
@@ -21,23 +22,46 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-3">
-		Tea
+	<div class="rowBK col-lg-3">
+		<h3>Tea</h3>
 	</div>
-	<div class="col-lg-9">
-		Information
+	<div class="rowBK col-lg-9">
+		<h3>Information</h3>
 	</div>
 </div>
 
-<div class="row" ng-repeat="tea in teaList">
+<div class="row" ng-repeat="tea in teaList | orderBy: sort | filter:query">
 	<div class="col-lg-3">
-		{{tea.name}}
-		<img ng-src="{{tea.imageUrl}}"
+		<h4>{{tea.name}}</h4>
+		<img ng-src="{{tea.imageUrl}}">
 	</div>
 	<div class="col-lg-9">
-		{{tea.ingredients}}
-			<span>
-			<button>Add to Bag!</button>
-			</span>
+
+		<button class="btn btn-danger pull-right" ng-click="addTea(tea._id, quantity)">Add to Bag!</button>
+		<div class="pull-right">Quantity: <select ng-model="quantity">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select></div>
+
+		<p><strong>Price </strong>: ${{tea.price}}</p>
+		<p><strong>Caffeine Scale</strong>: {{tea.caffeineScale}}</p>
+		<p><strong>Ingredients</strong>: {{tea.ingredients}}</p>
+		<p><strong>Rating</strong>: {{tea.rating}}</p>
+		<p ng-hide="{{tea.inStock==true}}"><strong>In Stock? </strong>No</p>
+		<p ng-hide="{{tea.inStock==false}}"><strong>In Stock? </strong>Yes</p>
+		<p><strong>Categories: </strong>
+			<ul ng-repeat="category in tea.categories">
+				<li>{{category}}</li>
+				
+			</ul>
+		</p>
 	</div>
 </div>
