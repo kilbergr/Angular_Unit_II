@@ -1,0 +1,26 @@
+<table>
+	<tr>
+	<form>
+		<td>Name<input type="text" ng-model="contact.name" autofocus></td>
+		<td>Email<input type="text" ng-model="contact.email"></td>
+		<td>Phone<input type="text" ng-model="contact.phone"></td>
+		<td><button ng-click="addContact(contact)">Submit</button></td>
+	</form>
+		<td>Search <input ng-model="query">
+		</td>
+	</tr>
+</table>
+<div class="tableColor">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+		</tr>
+		<tr ng-repeat="contact in contactData | filter:query" >
+			<td>{{contact.name}}</td>
+			<td>{{contact.email}}</td>
+			<td>{{contact.phone}} <button ng-click="findContact(contact.name)"><a ng-href="/show/{{contact.name}}">More about {{contact.name}}</a></button></td>
+		</tr>
+	</table>
+</div>

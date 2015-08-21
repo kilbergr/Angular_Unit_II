@@ -59,6 +59,8 @@ Implicitly from the function parameter names (has caveats)
 
 * When using inline array annotation does the order of anything matter? What order should match?   
 See above.  
- 
+
+* Name at least 3 angular built in services that we have used so far.  
+$http, $locationProvider, $routeProvider
 
 
