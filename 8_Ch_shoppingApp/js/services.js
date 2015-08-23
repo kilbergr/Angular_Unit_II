@@ -124,24 +124,25 @@ app.factory('TeaList', function(){
     }
 	];
 	TeaList.desiredTea = [];
+	
 
 	TeaList.findTea = function(id, quantity){
-		TeaList.teaList.chosenTea = {};
+		TeaList.chosenTea = {}
 		for (var i = 0; i< TeaList.teaList.length; i++){
-			if(TeaList.teaList[i].id == id){
-				// debugger;
+			if(TeaList.teaList[i]._id == id){
+				 // debugger;
 				TeaList.chosenTea = TeaList.teaList[i];
 				TeaList.chosenTea.quantity = quantity;
-				return TeaList.chosenTea;
 			}
+			return TeaList.chosenTea;
 		}
 	};
 
 	TeaList.addTea = function(id, quantity){
-		TeaList.findTea(id);
-		debugger;
+		TeaList.chosenTea = TeaList.findTea(id, quantity);
+		 debugger;
 		TeaList.desiredTea.push(TeaList.chosenTea);
-		console.log(TeaList.desiredTea);
+		return TeaList.desiredTea;
 	}
 	return TeaList;
 })
