@@ -125,7 +125,15 @@ app.factory('TeaList', function(){
 	];
 	TeaList.desiredTea = [];
 	
+	TeaList.changePrice = function(teaArr){
+		teaArr.forEach(function(tea){
+			tea.price = (tea.price*0.01).toFixed(2);
+		})
+		return teaArr;
+	}
 
+	TeaList.changePrice(TeaList.teaList);
+	
 	TeaList.findTea = function(id, quantity){
 		TeaList.chosenTea = {}
 		for (var i = 0; i< TeaList.teaList.length; i++){
