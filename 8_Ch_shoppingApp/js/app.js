@@ -1,6 +1,7 @@
 var app = angular.module("teaApp", ['ngRoute'])
 .run(function($rootScope){
 	$rootScope.currentRoute = 'home';
+	$rootScope.updating = false;
 });
 
 app.config(function($routeProvider, $locationProvider){
@@ -11,7 +12,7 @@ app.config(function($routeProvider, $locationProvider){
 	})
 	.when('/checkout', {
 		templateUrl: 'partials/checkout.html',
-		controller: 'CheckoutController'
+		controller: 'TeaController'
 	})
 	.otherwise({
 		redirectTo: '/'

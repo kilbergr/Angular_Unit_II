@@ -133,17 +133,39 @@ app.factory('TeaList', function(){
 				 // debugger;
 				TeaList.chosenTea = TeaList.teaList[i];
 				TeaList.chosenTea.quantity = quantity;
-			}
-			return TeaList.chosenTea;
+				return TeaList.chosenTea;
+			}	
 		}
 	};
 
 	TeaList.addTea = function(id, quantity){
 		TeaList.chosenTea = TeaList.findTea(id, quantity);
-		 debugger;
+		  // debugger;
 		TeaList.desiredTea.push(TeaList.chosenTea);
 		return TeaList.desiredTea;
-	}
+	};
+
+	TeaList.removeTea = function(id, quantity){
+		TeaList.chosenTea = TeaList.findTea(id, quantity);
+		if (TeaList.chosenTea){
+			var locTea = TeaList.desiredTea.indexOf(TeaList.chosenTea);
+			TeaList.desiredTea.splice(locTea, 1);
+		}
+	};
+
+	TeaList.updateQuantity = function(id, quantity, updateQ){
+		TeaList.chosenTea = TeaList.findTea(id, quantity);
+		if (TeaList.chosenTea){
+				TeaList.chosenTea.quantity = updateQ;
+				TeaList.updatedTea = TeaList.chosenTea;
+				TeaList.removeTea(TeaList.chosenTea._id, TeaList.chosenTea.quantity);
+				TeaList.desiredTea.push(TeaList.updatedTea);
+				return TeaList.desiredTea;
+		}
+	};
+
 	return TeaList;
-})
+});
+
+
 
