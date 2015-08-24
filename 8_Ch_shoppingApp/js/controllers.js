@@ -8,6 +8,8 @@ app.controller('TeaController', ["$scope", "$route", "TeaList", "$rootScope", fu
 	 $scope.desiredTea = TeaList.desiredTea;
 	 $scope.removeTea = TeaList.removeTea;
 	 $scope.updateQuantity = TeaList.updateQuantity;
+	 $scope.findTotal = TeaList.findTotal;
+	 $scope.total = TeaList.total;
 
 
 }])

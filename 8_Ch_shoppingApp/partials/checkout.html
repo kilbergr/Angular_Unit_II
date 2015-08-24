@@ -1,4 +1,4 @@
-<h2>My Chopping Cart <span class="pull-right">Order Total: </span></h2>
+<h2>My Chopping Cart <span class="pull-right">Order Total: ${{total.toFixed(2)}} </span></h2>
 <div class="row">
 	<div class="rowBK col-lg-5">
 		<h3>Product</h3>
@@ -31,11 +31,7 @@
 	<div class="col-lg-3">
 
 		<button class="btn btn-danger pull-right" ng-click="removeTea(tea._id, tea.quantity)">Remove from cart</button>
-		<button ng-hide="updating==true" class="btn btn-warning pull-right" ng-click="updating=true">Edit Quantity</button>
+		<button ng-hide="updating==true" class="btn btn-warning pull-right" ng-click="updating=true; total = 0">Edit Quantity</button>
 		<button ng-show="updating==true" class="btn btn-warning" ng-click="updateQuantity(tea._id, tea.quantity, updateQ); updating=false">Update Quantity</button>
-		
-
-	
-		
 	</div>
 </div>

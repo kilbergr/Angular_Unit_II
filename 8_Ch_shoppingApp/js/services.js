@@ -133,7 +133,7 @@ app.factory('TeaList', function(){
 	}
 
 	TeaList.changePrice(TeaList.teaList);
-	
+
 	TeaList.findTea = function(id, quantity){
 		TeaList.chosenTea = {}
 		for (var i = 0; i< TeaList.teaList.length; i++){
@@ -158,6 +158,8 @@ app.factory('TeaList', function(){
 		if (TeaList.chosenTea){
 			var locTea = TeaList.desiredTea.indexOf(TeaList.chosenTea);
 			TeaList.desiredTea.splice(locTea, 1);
+			TeaList.findTotal(TeaList.desiredTea);
+			debugger;
 		}
 	};
 
@@ -168,9 +170,24 @@ app.factory('TeaList', function(){
 				TeaList.updatedTea = TeaList.chosenTea;
 				TeaList.removeTea(TeaList.chosenTea._id, TeaList.chosenTea.quantity);
 				TeaList.desiredTea.push(TeaList.updatedTea);
+				TeaList.findTotal(TeaList.desiredTea);
+				debugger;
 				return TeaList.desiredTea;
 		}
 	};
+
+	TeaList.findTotal = function(desiredTea){
+		TeaList.total = 0;
+		TeaList.desiredTea.forEach(function(tea){
+			TeaList.total+=(tea.price*tea.quantity);
+		})
+		debugger;
+		return TeaList.total;
+	}
+
+	TeaList.newTotal = function(total){
+
+	}
 
 	return TeaList;
 });

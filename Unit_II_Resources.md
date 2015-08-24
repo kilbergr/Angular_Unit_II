@@ -64,6 +64,21 @@ See above.
 $http, $locationProvider, $routeProvider  
 
 * Why would you prefer to use a promise over a callback? What advantage does it have?  
-A promise can be used when a function would eventually throw an error or return value, but is currently latent or needs to do something prior to its ultimate return. Promises "uninvert inversion of control". 
+A promise can be used when a function would eventually throw an error or return value, but is currently latent or needs to do something prior to its ultimate return. Promises "uninvert inversion of control".  
+
+* Name at least 5 built in directives you've used so far.  
+ng-model, ng-show, ng-hide, ng-class, ng-repeat  
+
+* What is the preferred format for directive naming?
+Prefer using the dash-delimited format (e.g. ng-bind for ngBind  
+
+* Since our tag doesn't make sense as anything but a single element, add a restriction to the directive so that other directive formats do not work. What are all the possible ways to use a directive in html? How could you change the restriction to allow all?    
+When you create a directive, it is restricted to attribute and elements only by default. In order to create directives that are triggered by class name, you need to use the restrict option.  
+restrict: 'ACE'  
+
+* What is accessible in the directive's scope? How is data being passed to the directive? What is different about the gs-yoyo-details element from the first example?  
+
+
+
 
 
