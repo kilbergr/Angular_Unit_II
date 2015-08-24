@@ -2,6 +2,7 @@ var app = angular.module('pokemonDirectiveApp', []);
 
 app.controller('PokemonController', ['$scope', '$http', function($scope, $http){
 	$scope.pokemons = [];
+	$scope.chosenPokemons = [];
 
 	$scope.getPokemons = function(){
 		$http.get('http://pokeapi.co/api/v1/pokedex/1/')
@@ -27,7 +28,7 @@ app.controller('PokemonController', ['$scope', '$http', function($scope, $http){
 		chosenArr.forEach(function(pokemon){
 			$http.get('http://pokeapi.co/'+ pokemon.resource_uri)
 			.then(function(data){
-			$scope.pokemon = data.data;
+			  $scope.chosenPokemons.push(data.data);
 			})
 		});
 	}
@@ -42,7 +43,7 @@ app.directive('rkPokemonDetails', function(){
 	return{
 		templateUrl: 'pokemon-details.html',
 		scope: {
-			pokemon: '=pokemonData'
+			pokemons: '=pokemonData'
 		}
 	};
 })

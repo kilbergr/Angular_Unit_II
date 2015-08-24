@@ -1,9 +1,10 @@
-<!-- <div ng-repeat="pokemon in pokemons">
- -->	{{pokemon.name}}
+<div ng-repeat="pokemon in pokemons">
+	<h2>{{pokemon.name}}</h2>
+	<img ng-src="http://pokeapi.co/{{pokemon.sprites.resource_uri}}" alt="{{pokemon.sprites.name}}">
 	
-<!-- </div>
- -->
-{{pokemon.types.name}}
-	{{pokemon.sprites.name}}
-	<img ng-src="{{pokemon.sprites.image}}">
-	{{pokemon.moves[0]}}
+	<p><strong>Types:</strong><ul ng-repeat="type in pokemon.types | limitTo: 5"><li>{{type.name}}</li> </ul></p>	
+	<p><strong>Moves:</strong><ul ng-repeat="move in pokemon.moves | limitTo: 5"><li>{{move.name}}</li> </ul></p>
+
+
+</div>
+
