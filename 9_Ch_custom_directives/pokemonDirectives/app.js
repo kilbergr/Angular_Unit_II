@@ -42,7 +42,7 @@ app.directive('rkPokemonDetails', function(){
 	return{
 		templateUrl: 'pokemon-details.html',
 		scope: {
-			pokemons: '=pokemonData'
+			pokemon: '=pokemonData'
 		}
 	};
 })
