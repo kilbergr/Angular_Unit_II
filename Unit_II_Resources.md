@@ -76,9 +76,15 @@ Prefer using the dash-delimited format (e.g. ng-bind for ngBind
 When you create a directive, it is restricted to attribute and elements only by default. In order to create directives that are triggered by class name, you need to use the restrict option.  
 restrict: 'ACE'  
 
-* What is accessible in the directive's scope? How is data being passed to the directive? What is different about the gs-yoyo-details element from the first example?  
+* What is accessible in the directive's scope? How is data being passed to the directive? What is different about the gs-yoyo-details element from the first example? 
 
 
+Research link and compile. What do the two functions do in angular? Which one would be most commonly used for DOM manipulation?
 
+* The link function is the function that you can use to perform directive-specific operations. Link can be used to manipulate DOM via the directive.  
+Compile compiles an HTML string or DOM into a template and produces a template function, which can then be used to link scope and the template together.
 
+* How is the code able to call element.on and element.css? What type of object is it? Look in the angular docs for all available methods.  
+function in module ng
+Wraps a raw DOM element or HTML string as a jQuery element.
 

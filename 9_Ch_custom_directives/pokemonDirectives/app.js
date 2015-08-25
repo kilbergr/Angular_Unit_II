@@ -9,7 +9,10 @@ app.controller('PokemonController', ['$scope', '$http', function($scope, $http){
 		.then(function(data){
 			$scope.allPokemons = data.data.pokemon;
 			$scope.chooseFive($scope.allPokemons, $scope.pokemons);
-			$scope.individualInfo($scope.pokemons);
+			$scope.pokemons.forEach(function(pokemon){
+				$scope.individualInfo(pokemon, $scope.chosenPokemons)
+			});
+			// $scope.getImage($scope.chosenPokemons);
 		})
 	};
 
@@ -24,17 +27,42 @@ app.controller('PokemonController', ['$scope', '$http', function($scope, $http){
 		};
 	};
 
-	$scope.individualInfo = function(chosenArr){
-		chosenArr.forEach(function(pokemon){
+
+	$scope.individualInfo = function(pokemon, chosenArr){
+		 // origArr.forEach(function(pokemon){
+			// for(var i = 0; i < origArr.length; i++){
 			$http.get('http://pokeapi.co/'+ pokemon.resource_uri)
 			.then(function(data){
-			  $scope.chosenPokemons.push(data.data);
-			})
-		});
+			  pokemon.details = (data.data);
+			  if(data.data.sprites[0]){
+			  	$http.get('http://pokeapi.co' + data.data.sprites[0].resource_uri)
+			  	.then(function(sprite){
+			  		pokemon.image =  'http://pokeapi.co/'+ sprite.data.image;	
+			  		chosenArr.push(pokemon);
+			  		})
+			 		}
+			  })
+		// } 
+		// );
+	// $scope.getImage($scope.chosenPokemons);
+	return chosenArr;
 	}
 		
 
+	// $scope.getImage = function(chosenArr){
+	// 	debugger;
+	// 	chosenArr.forEach(function(pokemon){
+	// 		$http.get('http://pokeapi.co/' + pokemon.sprites[0].resource_uri)
+	// 		.then(function(data){
+	// 			pokemon.pokeImg = 'http://pokeapi.co/' + data.data.image;
+	// 			debugger;
+	// 			return pokeImg;
+	// 		})
+	// 	})
+	// };
+
 $scope.getPokemons();
+
 
 
 }]);
