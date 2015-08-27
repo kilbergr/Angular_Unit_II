@@ -5,9 +5,18 @@
 	<title>Carousel with Angular</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
 		<script src="app.js" type="text/javascript"></script>
-		
+	<script src="images.html"></script>
+
 </head>
 <body>
-	
+	<div ng-controller="CarouselController">
+		<button rk-carousel prev="prev">Prev {{count}}</button>
+		<div ng-repeat="pic in images">
+			<img ng-src="{{pic}}" width="500px" height="350px">
+		</div>
+		<button rk-carousel next="next">Next {{count}}</button>
+
+			
+	</div>
 </body>
 </html>
