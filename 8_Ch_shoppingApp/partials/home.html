@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<div class="row" ng-repeat="tea in teaList | orderBy: sort | filter:query">
+<div class="row" ng-repeat="tea in teaList | orderBy: price | filter:query | filter: sort">
 	<div class="col-lg-3">
 		<h4>{{tea.name}}</h4>
 		<img ng-src="{{tea.imageUrl}}">
@@ -49,10 +49,13 @@
 				<option value="8">8</option>
 				<option value="9">9</option>
 				<option value="10">10</option>
-			</select></div>
-
+			</select>
+		</div>
+		<div class="pull-right">
+			<rk-caffeine-meter caffeinemg="tea.caffeineScale" id="tea._id"></rk-caffeine-meter>
+		</div>
 		<p><strong>Price </strong>: ${{tea.price}}</p>
-		<p><strong>Caffeine Scale</strong>: {{tea.caffeineScale}}</p>
+		<p><strong>Caffeine (mg/serving)</strong>: {{tea.caffeineScale}}</p>
 		<p><strong>Ingredients</strong>: {{tea.ingredients}}</p>
 		<p><strong>Rating</strong>: {{tea.rating}}</p>
 		<p ng-hide="{{tea.inStock==true}}"><strong>In Stock? </strong>No</p>
