@@ -1,3 +1,10 @@
+<p ng-hide="imagesDirective.length<5">
+	<img src="{{imagesDirective[steps[stepCount]]}}" alt="" width="100px" height="50px">
+	<img src="{{imagesDirective[steps[stepCount+1]]}}" alt="" width="100px" height="50px">
+	<img src="{{imagesDirective[steps[stepCount+2]]}}" alt="" width="150px" height="75px">
+	<img src="{{imagesDirective[steps[stepCount+3]]}}" alt="" width="100px" height="50px">
+	<img src="{{imagesDirective[steps[stepCount+4]]}}" alt="" width="100px" height="50px">
+</p>
 <button ng-click="removeOne()">Previous</button>
 <img src="{{imagesDirective[count]}}" alt="" width="500px" height="350px">
 <button ng-click="addOne()">Next</button>
