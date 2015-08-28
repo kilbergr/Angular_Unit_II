@@ -16,24 +16,27 @@ app.directive('rkCarouselDirective', function(){
 		},
 		link: function(scope, element, attrs){
 			scope.count = 0;
-
-			scope.steps = [3, 4, 0, 1, 2 ]
-			scope.stepCount = 0;
+			scope.thumbOne = 0;
+			scope.thumbTwo = 1;
+			scope.thumbThree = 2;
+			scope.thumbFour = 3;
+			scope.thumbFive = 4;
 
 			scope.addOne = function(){
 				scope.count+=1;
-				scope.stepCount+=1;
+				scope.thumbOne+=1;
+				scope.thumbTwo+=1;
 				scope.numRotate();
-				scope.stepRotate();
-				console.log(scope.stepCount);
+				scope.thumbRotate();
 		}
 
 			scope.removeOne = function(){
 				scope.count-=1;
-				scope.stepCount-=1;
+				scope.thumbOne -=1;
+				scope.thumbTwo -=1;
 				scope.numRotate();
-				scope.stepRotate();
-		}
+				scope.thumbRotate();
+			}
 
 			scope.numRotate = function(){
 				// debugger;
@@ -47,16 +50,16 @@ app.directive('rkCarouselDirective', function(){
 				return scope.count
 			}
 
-			scope.stepRotate = function(){
+			scope.thumbRotate = function(){
 				// debugger;
-				if (scope.stepCount<0){
-					scope.tempStepCount=(	scope.imagesDirective.length+scope.stepCount);
-					scope.stepCount = scope.tempStepCount;
+				if (scope.thumbOne<0){
+					scope.tempThumbOne=(	scope.imagesDirective.length+scope.thumbCount);
+					scope.thumbCount = scope.tempthumbCount;
 				}
-				else if (scope.stepCount===scope.imagesDirective.length){
-					scope.stepCount = 0;
+				else if (scope.thumbCount===scope.imagesDirective.length){
+					scope.thumbCount = 0;
 				}
-				return scope.stepCount
+				return scope.thumbCount
 			}
 		}
 	}
