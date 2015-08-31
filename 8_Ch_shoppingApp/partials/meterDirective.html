@@ -1,8 +1,22 @@
 <div class="box .gauge--3">
     <h4>Caffeine</h4>
       <p>(mg/serving: {{cafVal}})</p>
+      <p>Rating: <span ng-show="cafVal>166">HIGH</span><span ng-show="cafVal<83">LOW</span><span ng-show="cafVal>83&&cafVal<166">MID</span></p>
       <div class="mask">
       	<div class="semi-circle"></div>
-      	<div class="semi-circle--mask " style='transform: rotate({{cafVal}}deg)'></div>
+        <div class="semi-circle--mask " style='transform: rotate({{cafVal}}deg)'></div>
       </div>
     </div>
+
+
+git filter-branch --commit-filter '
+        if [ "$GIT_COMMITTER_NAME" = "<kilbergr>" ];
+        then
+                GIT_COMMITTER_NAME="<rek>";
+                GIT_AUTHOR_NAME="<rek>";
+                GIT_COMMITTER_EMAIL="<rek@test.com>";
+                GIT_AUTHOR_EMAIL="<rek@test.com>";
+                git commit-tree "$@";
+        else
+                git commit-tree "$@";
+        fi' HEAD

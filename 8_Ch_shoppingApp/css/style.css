@@ -28,6 +28,7 @@ $grey: #f2f2f2;*/
   border: .1em solid #EFEFEF;
 }
 
+
 /* Gauge*/
 .mask {
   position: relative;
@@ -64,36 +65,8 @@ $grey: #f2f2f2;*/
 
 }
 
-/*{
-  position: relative;
 
-  display: block;
-  width: rem(200);
-  height: rem(100);
 
-  background: linear-gradient(to right, red 0%, yellow 50%, green 100%);
-
-  border-radius: 50% 50% 50% 50% / 100% 100% 0% 0% ;
-
-  &::before {
-    content: "";
-
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    z-index: 2;
-
-    display: block;
-    width: rem(140);
-    height: rem(70);
-    margin-left: rem(-70);
-
-    background: #fff;
-
-    border-radius: 50% 50% 50% 50% / 100% 100% 0% 0% ;
-  }      
-}
-*/
 .semi-circle--mask {
   position: absolute;
   top: 0;
@@ -128,16 +101,6 @@ $grey: #f2f2f2;*/
   }      
 }
 
-/*.gauge--1 {
-  .semi-circle {
-    background: $green;
-  }
-}
-
-.gauge--2 {
-  .semi-circle {
-    background: $red;
-  }*/
   
   .semi-circle--mask {
     transform: rotate(20deg) translate3d(0,0,0);
