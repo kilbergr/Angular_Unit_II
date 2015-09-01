@@ -88,3 +88,4 @@ Compile compiles an HTML string or DOM into a template and produces a template f
 function in module ng
 Wraps a raw DOM element or HTML string as a jQuery element.
 
+
