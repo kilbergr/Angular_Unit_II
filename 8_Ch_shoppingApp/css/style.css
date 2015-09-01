@@ -28,7 +28,6 @@ $grey: #f2f2f2;*/
   border: .1em solid #EFEFEF;
 }
 
-
 /* Gauge*/
 .mask {
   position: relative;
@@ -65,8 +64,6 @@ $grey: #f2f2f2;*/
 
 }
 
-
-
 .semi-circle--mask {
   position: absolute;
   top: 0;
@@ -100,6 +97,17 @@ $grey: #f2f2f2;*/
     border-radius: 50% 50% 50% 50% / 100% 100% 0% 0% ;
   }      
 }
+
+/*.gauge--1 {
+  .semi-circle {
+    background: $green;
+  }
+}
+
+.gauge--2 {
+  .semi-circle {
+    background: $red;
+  }*/
 
   
   .semi-circle--mask {

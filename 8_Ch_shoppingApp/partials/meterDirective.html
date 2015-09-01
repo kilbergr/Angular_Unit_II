@@ -9,14 +9,3 @@
     </div>
 
 
-git filter-branch --commit-filter '
-        if [ "$GIT_COMMITTER_NAME" = "<kilbergr>" ];
-        then
-                GIT_COMMITTER_NAME="<rek>";
-                GIT_AUTHOR_NAME="<rek>";
-                GIT_COMMITTER_EMAIL="<rek@test.com>";
-                GIT_AUTHOR_EMAIL="<rek@test.com>";
-                git commit-tree "$@";
-        else
-                git commit-tree "$@";
-        fi' HEAD
